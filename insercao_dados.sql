@@ -88,7 +88,7 @@ INSERT INTO veiculo VALUES('KAP9117', 'Carro', 'Ford', 'Branco', 'Fiesta', '3615
 INSERT INTO veiculo VALUES('MUT2129', 'Carro', 'Ford', 'Branco', 'Ecosport', '30654318824');
 INSERT INTO veiculo VALUES('LVV1600', 'Carro', 'Renault', 'Branco', 'Sandero', '03509757874');
 INSERT INTO veiculo VALUES('HGT8003', 'Carro', 'Renault', 'Branco', 'Duster', '66756799886');
-INSERT INTO veiculo VALUES('LAR3218', 'Carro', 'Hyundai', 'Branco', 'HB20', '44182927800s');
+INSERT INTO veiculo VALUES('LAR3218', 'Carro', 'Hyundai', 'Branco', 'HB20', '44182927800');
 INSERT INTO veiculo VALUES('MUU1157', 'Carro', 'Hyundai', 'Branco', 'I30', '40028922114');
 INSERT INTO veiculo VALUES('JVX9872', 'Carro', 'Toyota', 'Branco', 'Hilux', '98410641895');
 INSERT INTO veiculo VALUES('HQG1767', 'Carro', 'Toyota', 'Branco', 'Etios', '40028922114');
@@ -102,6 +102,8 @@ INSERT INTO veiculo VALUES('HWA2435', 'Moto', 'Suzuki', 'Verde', 'GSX 1300R Haya
 
 /* Cadastros */
 --INSERT INTO cadastra VALUES('2018-01-31 11:50:09', 'HOX4125', 'natham_coracini');
+
+
 
 
 

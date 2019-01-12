@@ -35,15 +35,15 @@ CREATE TABLE veiculo(
 	modelo_veiculo	text,
 	CPF_cliente		varchar(11),
 
-	FOREIGN KEY(CPF_cliente) REFERENCES cliente(CPF_cliente) ON DELETE SET NULL,
+	FOREIGN KEY(CPF_cliente) REFERENCES cliente(CPF_cliente) ON DELETE SET NULL
 );
 
 CREATE TABLE cadastra(
-	dataHora_entrada	timestamp PRIMARY KEY,
+	dataHora_entrada	timestamp,
 	placa_veiculo		varchar(10),
 	login_funcionario	text,
 
-	PRIMARY KEY(placa_veiculo, login_funcionario),
+	PRIMARY KEY(placa_veiculo, login_funcionario, dataHora_entrada),
 
 	FOREIGN KEY(placa_veiculo) REFERENCES veiculo(placa_veiculo) ON DELETE CASCADE,
 	FOREIGN KEY(login_funcionario) REFERENCES funcionario(login_funcionario) ON DELETE CASCADE
