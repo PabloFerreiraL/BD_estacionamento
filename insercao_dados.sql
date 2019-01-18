@@ -167,13 +167,7 @@ UPDATE permanencia SET dataHora_saida = '2018-02-22 00:10:44' WHERE placa_veicul
 UPDATE permanencia SET dataHora_saida = '2018-02-23 16:45:55' WHERE placa_veiculo = 'LVI7692';
 UPDATE permanencia SET dataHora_saida = '2018-02-24 17:30:06' WHERE placa_veiculo = 'HWA2435';
 
-
-/*
-entrada dos demais veiculos cadastrados no nosso bd (tem que cadastrar esses depois de sairem alguns, pois temos 14 carros de clientes mensalistas, 
-mas so temos 10 vagas mensalistas)
-
-mas como fazemos com o preço? a tabela preço seria a primeira a ser populada?
-
+/* entrada de alguns veiculos que nao sairam (veiculos estacionados no momento) */
 INSERT INTO cadastra VALUES('2018-02-15 13:17:36', 'MUU1157', 'giovanni_alvarenga');
 INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('C01', 'MUU1157', 'giovanni_alvarenga');
 INSERT INTO cadastra VALUES('2018-02-18 16:41:09', 'MWF3642', 'bruno_rizzi');
@@ -182,10 +176,9 @@ INSERT INTO cadastra VALUES('2018-02-17 15:39:58', 'HQG1767', 'bruno_rizzi');
 INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('C03', 'HQG1767', 'bruno_rizzi');
 INSERT INTO cadastra VALUES('2018-02-09 07:51:30', 'HSC8089', 'giovanni_alvarenga');
 INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('C04', 'HSC8089', 'giovanni_alvarenga');
-*/
 
 
-
+/* precos */
 
 
 
