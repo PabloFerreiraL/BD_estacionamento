@@ -50,7 +50,7 @@ CREATE TABLE cadastra(
 );
 
 CREATE TABLE permanencia(
-	dataHora_saida		timestamp NOT NULL,
+	dataHora_saida		timestamp,
 	codigo_vaga			varchar(5),
 	placa_veiculo		varchar(10),
 	login_funcionario	text,

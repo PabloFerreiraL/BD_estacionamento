@@ -100,8 +100,102 @@ INSERT INTO veiculo VALUES('LYV9114', 'Moto', 'Yamaha', 'Branco', 'Fazer 150 UBS
 INSERT INTO veiculo VALUES('LVI7692', 'Moto', 'Kawasaki', 'Verde', 'Ninja ZX-10R', '05694231805');
 INSERT INTO veiculo VALUES('HWA2435', 'Moto', 'Suzuki', 'Verde', 'GSX 1300R Hayabusa', '73859116843');
 
-/* Cadastros */
---INSERT INTO cadastra VALUES('2018-01-31 11:50:09', 'HOX4125', 'natham_coracini');
+/* Cadastros e Permanencias (Momento de entrada de veiculos no estacionamento) */
+INSERT INTO cadastra VALUES('2018-01-31 11:51:01', 'HOX4125', 'natham_coracini');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('C01', 'HOX4125', 'natham_coracini');
+INSERT INTO cadastra VALUES('2018-02-01 12:42:12', 'MZY2303', 'natham_coracini');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('C04', 'MZY2303', 'natham_coracini');
+INSERT INTO cadastra VALUES('2018-02-02 13:33:23', 'ISL6221', 'natham_coracini');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('A01', 'ISL6221', 'natham_coracini');
+INSERT INTO cadastra VALUES('2018-02-03 14:24:34', 'BBW2041', 'natham_coracini');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('C02', 'BBW2041', 'natham_coracini');
+INSERT INTO cadastra VALUES('2018-02-04 15:15:45', 'MZO8264', 'natham_coracini');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('A02', 'MZO8264', 'natham_coracini');
+INSERT INTO cadastra VALUES('2018-02-05 16:16:56', 'JZC8714', 'natham_coracini');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('A03', 'JZC8714', 'natham_coracini');
+INSERT INTO cadastra VALUES('2018-02-06 17:27:07', 'MWM5627', 'natham_coracini');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('C03', 'MWM5627', 'natham_coracini');
+INSERT INTO cadastra VALUES('2018-02-07 18:38:18', 'NCL7330', 'natham_coracini');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('A04', 'NCL7330', 'natham_coracini');
+INSERT INTO cadastra VALUES('2018-02-08 19:49:29', 'MXM7506', 'natham_coracini');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('A05', 'MXM7506', 'natham_coracini');
+INSERT INTO cadastra VALUES('2018-02-10 08:52:41', 'KAP9117', 'giovanni_alvarenga');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('C07', 'KAP9117', 'giovanni_alvarenga');
+INSERT INTO cadastra VALUES('2018-02-11 09:43:52', 'MUT2129', 'giovanni_alvarenga');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('A06', 'MUT2129', 'giovanni_alvarenga');
+INSERT INTO cadastra VALUES('2018-02-12 10:34:03', 'LVV1600', 'giovanni_alvarenga');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('A07', 'LVV1600', 'giovanni_alvarenga');
+INSERT INTO cadastra VALUES('2018-02-13 11:25:14', 'HGT8003', 'giovanni_alvarenga');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('A08', 'HGT8003', 'giovanni_alvarenga');
+INSERT INTO cadastra VALUES('2018-02-14 12:16:25', 'LAR3218', 'giovanni_alvarenga');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('B01', 'LAR3218', 'giovanni_alvarenga');
+INSERT INTO cadastra VALUES('2018-02-16 14:28:47', 'JVX9872', 'giovanni_alvarenga');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('B02', 'JVX9872', 'giovanni_alvarenga');
+INSERT INTO cadastra VALUES('2018-02-19 17:52:11', 'LWU5887', 'bruno_rizzi');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('C09', 'LWU5887', 'bruno_rizzi');
+INSERT INTO cadastra VALUES('2018-02-20 18:53:22', 'JYM7466', 'bruno_rizzi');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('C06', 'JYM7466', 'bruno_rizzi');
+INSERT INTO cadastra VALUES('2018-02-21 19:44:33', 'HYE3864', 'bruno_rizzi');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('C05', 'HYE3864', 'bruno_rizzi');
+INSERT INTO cadastra VALUES('2018-02-22 20:35:44', 'LYV9114', 'bruno_rizzi');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('C10', 'LYV9114', 'bruno_rizzi');
+INSERT INTO cadastra VALUES('2018-02-23 11:26:55', 'LVI7692', 'bruno_rizzi');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('C08', 'LVI7692', 'bruno_rizzi');
+INSERT INTO cadastra VALUES('2018-02-24 12:17:06', 'HWA2435', 'bruno_rizzi');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('B03', 'HWA2435', 'bruno_rizzi');
+
+/* Atualização das permanencias (momento de saida de veiculos do estacionamento) */
+UPDATE permanencia SET dataHora_saida = '2018-01-31 13:17:01' WHERE placa_veiculo = 'HOX4125';
+UPDATE permanencia SET dataHora_saida = '2018-02-01 15:12:12' WHERE placa_veiculo = 'MZY2303';
+UPDATE permanencia SET dataHora_saida = '2018-02-02 23:31:23' WHERE placa_veiculo = 'ISL6221';
+UPDATE permanencia SET dataHora_saida = '2018-02-04 14:30:34' WHERE placa_veiculo = 'BBW2041';
+UPDATE permanencia SET dataHora_saida = '2018-02-04 16:00:45' WHERE placa_veiculo = 'MZO8264';
+UPDATE permanencia SET dataHora_saida = '2018-02-05 18:49:56' WHERE placa_veiculo = 'JZC8714';
+UPDATE permanencia SET dataHora_saida = '2018-02-06 01:00:07' WHERE placa_veiculo = 'MWM5627';
+UPDATE permanencia SET dataHora_saida = '2018-02-07 07:10:18' WHERE placa_veiculo = 'NCL7330';
+UPDATE permanencia SET dataHora_saida = '2018-02-08 23:09:29' WHERE placa_veiculo = 'MXM7506';
+UPDATE permanencia SET dataHora_saida = '2018-02-10 12:52:42' WHERE placa_veiculo = 'KAP9117';
+UPDATE permanencia SET dataHora_saida = '2018-02-11 21:12:52' WHERE placa_veiculo = 'MUT2129';
+UPDATE permanencia SET dataHora_saida = '2018-02-12 14:28:03' WHERE placa_veiculo = 'LVV1600';
+UPDATE permanencia SET dataHora_saida = '2018-02-13 15:28:14' WHERE placa_veiculo = 'HGT8003';
+UPDATE permanencia SET dataHora_saida = '2018-02-14 03:30:25' WHERE placa_veiculo = 'LAR3218';
+UPDATE permanencia SET dataHora_saida = '2018-02-16 22:28:47' WHERE placa_veiculo = 'JVX9872';
+UPDATE permanencia SET dataHora_saida = '2018-02-19 19:30:11' WHERE placa_veiculo = 'LWU5887';
+UPDATE permanencia SET dataHora_saida = '2018-02-20 00:23:22' WHERE placa_veiculo = 'JYM7466';
+UPDATE permanencia SET dataHora_saida = '2018-02-21 05:15:33' WHERE placa_veiculo = 'HYE3864';
+UPDATE permanencia SET dataHora_saida = '2018-02-22 00:10:44' WHERE placa_veiculo = 'LYV9114';
+UPDATE permanencia SET dataHora_saida = '2018-02-23 16:45:55' WHERE placa_veiculo = 'LVI7692';
+UPDATE permanencia SET dataHora_saida = '2018-02-24 17:30:06' WHERE placa_veiculo = 'HWA2435';
+
+
+/*
+entrada dos demais veiculos cadastrados no nosso bd (tem que cadastrar esses depois de sairem alguns, pois temos 14 carros de clientes mensalistas, 
+mas so temos 10 vagas mensalistas)
+
+mas como fazemos com o preço? a tabela preço seria a primeira a ser populada?
+
+INSERT INTO cadastra VALUES('2018-02-15 13:17:36', 'MUU1157', 'giovanni_alvarenga');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('C01', 'MUU1157', 'giovanni_alvarenga');
+INSERT INTO cadastra VALUES('2018-02-18 16:41:09', 'MWF3642', 'bruno_rizzi');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('C02', 'MWF3642', 'bruno_rizzi');
+INSERT INTO cadastra VALUES('2018-02-17 15:39:58', 'HQG1767', 'bruno_rizzi');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('C03', 'HQG1767', 'bruno_rizzi');
+INSERT INTO cadastra VALUES('2018-02-09 07:51:30', 'HSC8089', 'giovanni_alvarenga');
+INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('C04', 'HSC8089', 'giovanni_alvarenga');
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
