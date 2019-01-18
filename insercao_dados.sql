@@ -151,19 +151,19 @@ UPDATE permanencia SET dataHora_saida = '2018-02-02 23:31:23' WHERE placa_veicul
 UPDATE permanencia SET dataHora_saida = '2018-02-04 14:30:34' WHERE placa_veiculo = 'BBW2041';
 UPDATE permanencia SET dataHora_saida = '2018-02-04 16:00:45' WHERE placa_veiculo = 'MZO8264';
 UPDATE permanencia SET dataHora_saida = '2018-02-05 18:49:56' WHERE placa_veiculo = 'JZC8714';
-UPDATE permanencia SET dataHora_saida = '2018-02-06 01:00:07' WHERE placa_veiculo = 'MWM5627';
-UPDATE permanencia SET dataHora_saida = '2018-02-07 07:10:18' WHERE placa_veiculo = 'NCL7330';
+UPDATE permanencia SET dataHora_saida = '2018-02-07 01:00:07' WHERE placa_veiculo = 'MWM5627';
+UPDATE permanencia SET dataHora_saida = '2018-02-08 07:10:18' WHERE placa_veiculo = 'NCL7330';
 UPDATE permanencia SET dataHora_saida = '2018-02-08 23:09:29' WHERE placa_veiculo = 'MXM7506';
 UPDATE permanencia SET dataHora_saida = '2018-02-10 12:52:42' WHERE placa_veiculo = 'KAP9117';
 UPDATE permanencia SET dataHora_saida = '2018-02-11 21:12:52' WHERE placa_veiculo = 'MUT2129';
 UPDATE permanencia SET dataHora_saida = '2018-02-12 14:28:03' WHERE placa_veiculo = 'LVV1600';
 UPDATE permanencia SET dataHora_saida = '2018-02-13 15:28:14' WHERE placa_veiculo = 'HGT8003';
-UPDATE permanencia SET dataHora_saida = '2018-02-14 03:30:25' WHERE placa_veiculo = 'LAR3218';
+UPDATE permanencia SET dataHora_saida = '2018-02-15 03:30:25' WHERE placa_veiculo = 'LAR3218';
 UPDATE permanencia SET dataHora_saida = '2018-02-16 22:28:47' WHERE placa_veiculo = 'JVX9872';
 UPDATE permanencia SET dataHora_saida = '2018-02-19 19:30:11' WHERE placa_veiculo = 'LWU5887';
-UPDATE permanencia SET dataHora_saida = '2018-02-20 00:23:22' WHERE placa_veiculo = 'JYM7466';
-UPDATE permanencia SET dataHora_saida = '2018-02-21 05:15:33' WHERE placa_veiculo = 'HYE3864';
-UPDATE permanencia SET dataHora_saida = '2018-02-22 00:10:44' WHERE placa_veiculo = 'LYV9114';
+UPDATE permanencia SET dataHora_saida = '2018-02-21 00:23:22' WHERE placa_veiculo = 'JYM7466';
+UPDATE permanencia SET dataHora_saida = '2018-02-22 05:15:33' WHERE placa_veiculo = 'HYE3864';
+UPDATE permanencia SET dataHora_saida = '2018-02-23 00:10:44' WHERE placa_veiculo = 'LYV9114';
 UPDATE permanencia SET dataHora_saida = '2018-02-23 16:45:55' WHERE placa_veiculo = 'LVI7692';
 UPDATE permanencia SET dataHora_saida = '2018-02-24 17:30:06' WHERE placa_veiculo = 'HWA2435';
 
@@ -176,7 +176,6 @@ INSERT INTO cadastra VALUES('2018-02-17 15:39:58', 'HQG1767', 'bruno_rizzi');
 INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('C03', 'HQG1767', 'bruno_rizzi');
 INSERT INTO cadastra VALUES('2018-02-09 07:51:30', 'HSC8089', 'giovanni_alvarenga');
 INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('C04', 'HSC8089', 'giovanni_alvarenga');
-
 
 /* precos */
 
