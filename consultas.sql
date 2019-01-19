@@ -32,13 +32,3 @@ where vaga.codigo_vaga NOT IN
 	where datahora_saida is null)
 
 
-/* preco mensalista */
-select valorfixo
-from preco;
-
-
-/* preco comum */
-select permanencia.datahora_saida - cadastra.datahora_entrada as tempoPermanencia, datahora_entrada, datahora_saida, veiculo.placa_veiculo
-from permanencia, cadastra, veiculo, cliente
-where permanencia.placa_veiculo = cadastra.placa_veiculo and permanencia.placa_veiculo = veiculo.placa_veiculo and veiculo.CPF_cliente = cliente.CPF_cliente
-	and cliente.tipo_cliente = 'C'
