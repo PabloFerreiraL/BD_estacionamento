@@ -24,7 +24,12 @@ order by nome_cliente
 
 
 /*vagas livres*/
-SELECT COUNT(*) from vaga where vaga.codigo_vaga NOT IN (SELECT codigo_vaga from permanencia)
+SELECT COUNT(*)
+from vaga 
+where vaga.codigo_vaga NOT IN 
+	(SELECT codigo_vaga 
+	from permanencia
+	where datahora_saida is null)
 
 
 /* preco mensalista */
