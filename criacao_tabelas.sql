@@ -65,16 +65,11 @@ CREATE TABLE permanencia(
 CREATE TABLE preco(
 	id_preco		smallint PRIMARY KEY,
 	tipo_preco		char NOT NULL, /* Comum(C) ou Mensalista(M) */
-	tempo_preco		time NOT NULL
-);
 
-CREATE TABLE preco_comum(
 	quinzeMin		smallint,
 	trintaMin		smallint,
 	umaHora			smallint,
-	horaAdicional	smallint
-)inherits(preco);
+	horaAdicional	smallint,
+	valorFixo		smallint
+);
 
-CREATE TABLE preco_mensalista(
-	valorFixo	smallint
-)inherits(preco);

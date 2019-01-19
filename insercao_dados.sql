@@ -184,3 +184,4 @@ INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('C
 
 
 
+
