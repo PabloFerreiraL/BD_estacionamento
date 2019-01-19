@@ -178,7 +178,7 @@ INSERT INTO cadastra VALUES('2018-02-09 07:51:30', 'HSC8089', 'giovanni_alvareng
 INSERT INTO permanencia(codigo_vaga, placa_veiculo, login_funcionario) VALUES('C04', 'HSC8089', 'giovanni_alvarenga');
 
 /* precos */
-
+INSERT INTO preco VALUES(1, 2, 5, 7, 5, 200);
 
 
 

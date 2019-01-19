@@ -64,7 +64,6 @@ CREATE TABLE permanencia(
 
 CREATE TABLE preco(
 	id_preco		smallint PRIMARY KEY,
-	tipo_preco		char NOT NULL, /* Comum(C) ou Mensalista(M) */
 
 	quinzeMin		smallint,
 	trintaMin		smallint,

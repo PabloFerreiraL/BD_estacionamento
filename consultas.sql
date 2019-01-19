@@ -22,8 +22,39 @@ where veiculo.CPF_cliente = cliente.CPF_cliente and cadastra.placa_veiculo = per
 group by cliente.nome_cliente, veiculo.placa_veiculo, cadastra.datahora_entrada, permanencia.datahora_saida
 order by nome_cliente
 
-<<<<<<< HEAD
-/*vagas livres*/
 
+/*vagas livres*/
 SELECT COUNT(*) from vaga where vaga.codigo_vaga NOT IN (SELECT codigo_vaga from permanencia)
 
+
+/* calculo do preco */
+CREATE OR REPLACE FUNCTION calculaPreco(placa varchar(10)) RETURNS real AS $$
+DECLARE
+	tempo time;
+	precoValor real;
+	tipo_cli varchar;
+BEGIN
+	select tipo_cli into tipo_cli
+	from cliente, veiculo
+	where placa = veiculo.placa_veiculo and veiculo.CPF_cliente = cliente.CPF_cliente;
+
+	IF tipo_cli = 'M' THEN
+		select valorfixo into precoValor
+		from preco;
+		return precoValor;
+	ELSE
+		select permanencia.datahora_saida - cadastra.datahora_entrada into tempo
+		from permanencia, cadastra
+		where permanencia.placa_veiculo = cadastra.placa_veiculo and placa = permanencia.placa_veiculo;
+		
+		if tempo < interval '15m' then precoValor := preco.quinzemin;
+		elsif tempo < interval '30m' then precoValor := preco.trintamin;
+		elsif tempo < interval '60m' then precoValor := preco.umahora;
+		else precoValor := preco.horaAdicional;
+		end if;
+		
+		return precoValor;
+		
+	END IF;
+END;
+$$ LANGUAGE plpgsql;
