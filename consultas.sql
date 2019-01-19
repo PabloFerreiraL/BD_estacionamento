@@ -47,10 +47,10 @@ BEGIN
 		from permanencia, cadastra
 		where permanencia.placa_veiculo = cadastra.placa_veiculo and placa = permanencia.placa_veiculo;
 		
-		if tempo < interval '15m' then precoValor := preco.quinzemin;
-		elsif tempo < interval '30m' then precoValor := preco.trintamin;
-		elsif tempo < interval '60m' then precoValor := preco.umahora;
-		else precoValor := preco.horaAdicional;
+		if tempo < interval '15m' then precoValor := (select preco.quinzemin from preco);
+		elsif tempo < interval '30m' then precoValor := (select preco.trintamin from preco);
+		elsif tempo < interval '60m' then precoValor := (select preco.umahora from preco);
+		else precoValor := ceil(CAST(to_char((tempo - interval '1 hour'), 'HH') as real)) * (select preco.horaAdicional from preco) + (select preco.umahora from preco);
 		end if;
 		
 		return precoValor;
@@ -58,3 +58,9 @@ BEGIN
 	END IF;
 END;
 $$ LANGUAGE plpgsql;
+
+
+/* jeito facil de testar a consulta do preco */
+SELECT(
+	CAST(to_char(('20:00:00' - interval '1 hour'), 'HH') as real) * 5 + 7
+);
