@@ -17,3 +17,6 @@ CREATE TRIGGER verificaData
 AFTER INSERT OR UPDATE ON cadastra
 FOR EACH ROW
 EXECUTE PROCEDURE verificaData();
+
+
+/* trigger para antes de inserir um carro, verificar se ele ja saiu do estacionamento (verificar a tabela de permanencia, se a hora de saida esta nula) */
