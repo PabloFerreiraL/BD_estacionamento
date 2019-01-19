@@ -22,3 +22,4 @@ from cliente, veiculo, cadastra, permanencia
 where veiculo.CPF_cliente = cliente.CPF_cliente and cadastra.placa_veiculo = permanencia.placa_veiculo and cadastra.placa_veiculo = veiculo.placa_veiculo
 group by cliente.nome_cliente, veiculo.placa_veiculo, cadastra.datahora_entrada, permanencia.datahora_saida
 order by nome_cliente
+
