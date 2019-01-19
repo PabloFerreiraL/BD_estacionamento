@@ -4,7 +4,7 @@
 CREATE TABLE cliente(
 	CPF_cliente		varchar(11) PRIMARY KEY,
 	nome_cliente	text NOT NULL,
-	tipo_cliente	char NOT NULL /* Comum(C) ou Mensalista(M) */
+	tipo_cliente	char NOT NULL CHECK(tipo_cliente IN ('C', 'M'))/* Comum(C) ou Mensalista(M) */
 );
 
 CREATE TABLE telefone(
@@ -13,7 +13,7 @@ CREATE TABLE telefone(
 
 	PRIMARY KEY(CPF_cliente, telefone_cliente),
 
-	FOREIGN KEY(CPF_cliente) REFERENCES cliente(CPF_cliente) ON DELETE CASCADE
+	FOREIGN KEY(CPF_cliente) REFERENCES cliente(CPF_cliente) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE funcionario(
@@ -24,7 +24,7 @@ CREATE TABLE funcionario(
 
 CREATE TABLE vaga(
 	codigo_vaga		varchar(3) PRIMARY KEY, /* Ex: B01 */
-	setor_vaga		char NOT NULL /* Comum(C) ou Mensalista(M) */
+	setor_vaga		char NOT NULL CHECK(setor_vaga IN ('C', 'M')) /* Comum(C) ou Mensalista(M) */
 );
 
 CREATE TABLE veiculo(
@@ -35,7 +35,7 @@ CREATE TABLE veiculo(
 	modelo_veiculo	text,
 	CPF_cliente		varchar(11),
 
-	FOREIGN KEY(CPF_cliente) REFERENCES cliente(CPF_cliente) ON DELETE SET NULL
+	FOREIGN KEY(CPF_cliente) REFERENCES cliente(CPF_cliente) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 CREATE TABLE cadastra(
