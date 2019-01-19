@@ -30,5 +30,38 @@ where vaga.codigo_vaga NOT IN
 	(SELECT codigo_vaga 
 	from permanencia
 	where datahora_saida is null)
+	
 
+/* calculo do preco */
+CREATE OR REPLACE FUNCTION calculaPreco(placa varchar(10)) RETURNS double precision AS $$
+DECLARE
+	tempo double precision;
+	precoValor double precision;
+	tipo_cli varchar;
+BEGIN
+	select tipo_cli into tipo_cli
+	from cliente, veiculo
+	where placa = veiculo.placa_veiculo and veiculo.CPF_cliente = cliente.CPF_cliente;
+
+	IF tipo_cli = 'M' THEN
+		select valorfixo into precoValor
+		from preco;
+		return precoValor;
+	ELSE
+		SELECT (EXTRACT(EPOCH FROM permanencia.datahora_saida) -
+		EXTRACT(EPOCH FROM cadastra.datahora_entrada)) / 3600 into tempo
+		from permanencia, cadastra
+		where permanencia.placa_veiculo = cadastra.placa_veiculo and placa = permanencia.placa_veiculo;
+		
+		if tempo < 0.25 then precoValor := (select preco.quinzemin from preco);
+		elsif tempo < 0.5 then precoValor := (select preco.trintamin from preco);
+		elsif tempo < 1 then precoValor := (select preco.umahora from preco);
+		else precoValor := ceil(tempo-1) * (select preco.horaAdicional from preco) + (select preco.umahora from preco);
+		end if;
+		
+		return precoValor;
+		
+	END IF;
+END;
+$$ LANGUAGE plpgsql;
 
