@@ -22,10 +22,8 @@ where veiculo.CPF_cliente = cliente.CPF_cliente and cadastra.placa_veiculo = per
 group by cliente.nome_cliente, veiculo.placa_veiculo, cadastra.datahora_entrada, permanencia.datahora_saida
 order by nome_cliente
 
+<<<<<<< HEAD
 /*vagas livres*/
 
 SELECT COUNT(*) from vaga where vaga.codigo_vaga NOT IN (SELECT codigo_vaga from permanencia)
-
-ola ola
-
 
