@@ -15,10 +15,17 @@ where veiculo.CPF_cliente = cliente.CPF_cliente and cadastra.placa_veiculo = per
 group by cliente.CPF_cliente, cliente.nome_cliente, veiculo.placa_veiculo, vaga.codigo_vaga, cadastra.datahora_entrada
 order by nome_cliente
 
-
 /* historico completo de horarios de entrada e saida dos veiculos */
 select nome_cliente, veiculo.placa_veiculo, datahora_entrada, datahora_saida
 from cliente, veiculo, cadastra, permanencia
 where veiculo.CPF_cliente = cliente.CPF_cliente and cadastra.placa_veiculo = permanencia.placa_veiculo and cadastra.placa_veiculo = veiculo.placa_veiculo
 group by cliente.nome_cliente, veiculo.placa_veiculo, cadastra.datahora_entrada, permanencia.datahora_saida
 order by nome_cliente
+
+/*vagas livres*/
+
+SELECT COUNT(*) from vaga where vaga.codigo_vaga NOT IN (SELECT codigo_vaga from permanencia)
+
+ola
+
+
