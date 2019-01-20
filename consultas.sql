@@ -26,6 +26,6 @@ order by nome_cliente
 
 SELECT COUNT(*) from vaga where vaga.codigo_vaga NOT IN (SELECT codigo_vaga from permanencia)
 
-ola
+ola ola
 
 
