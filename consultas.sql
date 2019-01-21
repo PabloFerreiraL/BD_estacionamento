@@ -28,10 +28,10 @@ SELECT COUNT(*) from vaga where vaga.codigo_vaga NOT IN (SELECT codigo_vaga from
 
 
 /* calculo do preco */
-CREATE OR REPLACE FUNCTION calculaPreco(placa varchar(10)) RETURNS real AS $$
+CREATE OR REPLACE FUNCTION calculaPreco(placa varchar(10)) RETURNS double precision AS $$
 DECLARE
-	tempo time;
-	precoValor real;
+	tempo double precision;
+	precoValor double precision;
 	tipo_cli varchar;
 BEGIN
 	select tipo_cli into tipo_cli
@@ -43,14 +43,15 @@ BEGIN
 		from preco;
 		return precoValor;
 	ELSE
-		select permanencia.datahora_saida - cadastra.datahora_entrada into tempo
+		SELECT (EXTRACT(EPOCH FROM permanencia.datahora_saida) -
+		EXTRACT(EPOCH FROM cadastra.datahora_entrada)) / 3600 into tempo
 		from permanencia, cadastra
 		where permanencia.placa_veiculo = cadastra.placa_veiculo and placa = permanencia.placa_veiculo;
 		
-		if tempo < interval '15m' then precoValor := (select preco.quinzemin from preco);
-		elsif tempo < interval '30m' then precoValor := (select preco.trintamin from preco);
-		elsif tempo < interval '60m' then precoValor := (select preco.umahora from preco);
-		else precoValor := ceil(CAST(to_char((tempo - interval '1 hour'), 'HH') as real)) * (select preco.horaAdicional from preco) + (select preco.umahora from preco);
+		if tempo < 0.25 then precoValor := (select preco.quinzemin from preco);
+		elsif tempo < 0.5 then precoValor := (select preco.trintamin from preco);
+		elsif tempo < 1 then precoValor := (select preco.umahora from preco);
+		else precoValor := ceil(tempo-1) * (select preco.horaAdicional from preco) + (select preco.umahora from preco);
 		end if;
 		
 		return precoValor;
