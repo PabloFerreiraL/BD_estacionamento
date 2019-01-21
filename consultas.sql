@@ -24,7 +24,13 @@ order by nome_cliente
 
 
 /*vagas livres*/
-SELECT COUNT(*) from vaga where vaga.codigo_vaga NOT IN (SELECT codigo_vaga from permanencia)
+SELECT COUNT(*)
+from vaga 
+where vaga.codigo_vaga NOT IN 
+	(SELECT codigo_vaga 
+	from permanencia
+	where datahora_saida is null)
+
 
 
 /* calculo do preco */
@@ -61,7 +67,3 @@ END;
 $$ LANGUAGE plpgsql;
 
 
-/* jeito facil de testar a consulta do preco */
-SELECT(
-	CAST(to_char(('20:00:00' - interval '1 hour'), 'HH') as real) * 5 + 7
-);
