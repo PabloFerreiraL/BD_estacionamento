@@ -30,6 +30,12 @@ where vaga.codigo_vaga NOT IN
 	(SELECT codigo_vaga 
 	from permanencia
 	where datahora_saida is null)
+
+
+/* consulta do numero de veiculos estacionados por dia */
+SELECT to_char(datahora_entrada, 'DD-MM-YYYY'), COUNT(cadastra.placa_veiculo) 
+from cadastra
+group by to_char(datahora_entrada, 'DD-MM-YYYY')
 	
 
 /* calculo do preco */
