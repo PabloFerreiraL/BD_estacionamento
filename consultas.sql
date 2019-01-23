@@ -21,22 +21,17 @@ from cliente, veiculo, cadastra, permanencia
 where veiculo.CPF_cliente = cliente.CPF_cliente and cadastra.placa_veiculo = permanencia.placa_veiculo and cadastra.placa_veiculo = veiculo.placa_veiculo
 group by cliente.nome_cliente, veiculo.placa_veiculo, cadastra.datahora_entrada, permanencia.datahora_saida
 order by nome_cliente
-
+	
 
 /*vagas livres*/
-SELECT COUNT(*)
+SELECT vaga.setor_vaga, COUNT(*)
 from vaga 
 where vaga.codigo_vaga NOT IN 
 	(SELECT codigo_vaga 
 	from permanencia
 	where datahora_saida is null)
+group by vaga.setor_vaga
 
-
-/* consulta do numero de veiculos estacionados por dia */
-SELECT to_char(datahora_entrada, 'DD-MM-YYYY'), COUNT(cadastra.placa_veiculo) 
-from cadastra
-group by to_char(datahora_entrada, 'DD-MM-YYYY')
-	
 
 /* calculo do preco */
 CREATE OR REPLACE FUNCTION calculaPreco(placa varchar(10)) RETURNS double precision AS $$
@@ -71,3 +66,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+
+/* consulta do numero de veiculos estacionados por dia */
+SELECT to_char(datahora_entrada, 'DD-MM-YYYY'), COUNT(cadastra.placa_veiculo) 
+from cadastra
+group by to_char(datahora_entrada, 'DD-MM-YYYY')
